@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Launch Node Server",
+        "type": "node",
+        "request": "launch",
+        "program": "${workspaceFolder}/server.js",
+        "cwd": "${workspaceFolder}"
+      },
+      {
+        "name": "Launch Chrome",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://localhost:3000",
+        "webRoot": "${workspaceFolder}"
+      }
+    ],
+    "compounds": [
+      {
+        "name": "Server + Frontend",
+        "configurations": ["Launch Node Server", "Launch Chrome"]
+      }
+    ]
+  }
+  

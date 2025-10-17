@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recursos – NotCopy</title>
+    <link rel="stylesheet" href="/css/recursos.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- header -->
+    <header class="header" id="main-header">
+      <h1>NotCopy</h1>
+      <nav>
+        <a href="/">Inicio</a>
+        <a href="#">Descargas</a>
+        <a href="/dashboard">Favoritos</a>
+        <a href="#">Soporte</a>
+        <a href="/about">Sobre NotCopy</a>
+        <a class="active" href="#">Recursos</a>
+        <a href="/contacto">Contacto</a>
+        <a href="/">Cerrar Sesión</a>
+      </nav>
+    </header>
+
+    <!-- fondo animado -->
+    <div class="animated-bg"></div>
+
+    <main class="main">
+      <!-- hero -->
+      <section class="hero">
+        <div class="hero-content">
+          <h1>Bienvenido a NotCopy</h1>
+          <br />
+          <h2>Tu biblioteca multimedia</h2>
+          <p>Explora videos, imágenes, audio, GIFs y documentos sin límites.</p>
+        </div>
+      </section>
+
+      <!-- buscador -->
+      <section class="search-bar">
+        <input type="text" placeholder="Buscar recursos..." />
+        <button><i class="fas fa-search"></i></button>
+      </section>
+
+      <!-- grid tarjetas -->
+      <section class="grid-cards">
+        <div class="card">
+          <i class="fas fa-video fa-3x"></i>
+          <h3>Videos</h3>
+          <p>Time-lapses, drones y motion graphics.</p>
+          <a href="#" class="btn-card">Ver más</a>
+        </div>
+
+        <div class="card">
+          <i class="fas fa-file-alt fa-3x"></i>
+          <h3>Documentos</h3>
+          <p>Whitepapers, manuales y plantillas.</p>
+          <a href="#" class="btn-card">Ver más</a>
+        </div>
+
+        <div class="card">
+          <i class="fas fa-image fa-3x"></i>
+          <h3>Imágenes</h3>
+          <p>Fotografía, ilustraciones y vectores.</p>
+          <a href="#" class="btn-card">Ver más</a>
+        </div>
+
+        <div class="card">
+          <i class="fas fa-music fa-3x"></i>
+          <h3>Audio</h3>
+          <p>Beats, loops y efectos de sonido.</p>
+          <a href="#" class="btn-card">Ver más</a>
+        </div>
+
+        <div class="card">
+          <i class="fas fa-grin-squint fa-3x"></i>
+          <h3>GIFs</h3>
+          <p>Reacciones, loops y animaciones cortas.</p>
+          <a href="#" class="btn-card">Ver más</a>
+        </div>
+      </section>
+    </main>
+
+    <!-- footer -->
+    <footer class="footer">
+      <p>&copy; 2025 NotCopy. Todos los derechos reservados.</p>
+      <div class="socials">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
+    </footer>
+
+    <!-- header dinamico -->
+    <script>
+      window.addEventListener("scroll", () => {
+        const header = document.getElementById("main-header");
+        header.classList.toggle("scrolled", window.scrollY > 50);
+      });
+    </script>
+  </body>
+</html>

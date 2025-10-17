@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sobre NotCopy</title>
+    <link rel="stylesheet" href="/css/about.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- fondo animado -->
+    <div class="animated-bg"></div>
+
+    <!-- header -->
+    <header class="header">
+      <h1>NotCopy</h1>
+      <nav>
+        <a href="#">Perfil</a>
+        <a href="#">Ajustes</a>
+        <a href="/">Cerrar sesión</a>
+      </nav>
+    </header>
+
+    <div class="layout">
+      <!-- sidebar -->
+      <aside class="sidebar">
+        <ul>
+          <li>
+            <a href="/recursos"><i class="fas fa-home"></i> Inicio</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-download"></i> Descargas</a>
+          </li>
+          <li>
+            <a href="/dashboard"><i class="fas fa-star"></i> Favoritos</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-headset"></i> Soporte</a>
+          </li>
+          <li>
+            <a href="/about" class="active"
+              ><i class="fas fa-info-circle"></i> Sobre NotCopy</a
+            >
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-folder"></i> Recursos</a>
+          </li>
+          <li>
+            <a href="/contacto"><i class="fas fa-envelope"></i> Contacto</a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- main -->
+      <main class="main">
+        <section class="about">
+          <h2>Sobre NotCopy</h2>
+
+          <div class="about-block">
+            <h3>¿Quiénes somos?</h3>
+            <p>
+              NotCopy se dedica a la integración y gestión de derechos de autor
+              para artistas y creadores, utilizando blockchain para asegurar la
+              trazabilidad de las obras.
+            </p>
+          </div>
+
+          <div class="about-block">
+            <h3>Nuestros Servicios</h3>
+            <p>
+              Ofrecemos registro y administración de derechos, soporte y
+              asesoramiento, además de educación para promover la protección de
+              las creaciones.
+            </p>
+          </div>
+
+          <div class="about-block">
+            <h3>Tecnología</h3>
+            <p>
+              Empleamos blockchain, bases de datos avanzadas y plataformas
+              digitales seguras para garantizar accesibilidad y confianza.
+            </p>
+          </div>
+
+          <div class="about-block">
+            <h3>Ubicación</h3>
+            <p>
+              Estamos en Robledo Altamira, Medellín – Antioquia, dentro del
+              sector cultural y creativo de la ciudad.
+            </p>
+          </div>
+
+          <div class="about-block">
+            <h3>Misión</h3>
+            <p>
+              Ayudar a jóvenes y profesionales a acceder a contenido libre de
+              copyright, para proyectos académicos y entretenimiento.
+            </p>
+          </div>
+
+          <div class="about-block">
+            <h3>Visión</h3>
+            <p>
+              Convertirnos en referencia con una interfaz moderna y fácil de
+              usar, mejorando constantemente la experiencia de nuestros
+              usuarios.
+            </p>
+          </div>
+
+          <div class="about-block">
+            <h3>Objetivo</h3>
+            <p>
+              Proteger y gestionar derechos de autor de obras, asegurando
+              trazabilidad y cumplimiento normativo.
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- footer -->
+    <footer class="footer">
+      <p>&copy; 2025 NotCopy. Todos los derechos reservados.</p>
+      <div class="socials">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
+    </footer>
+
+    <script>
+      // efecto header scrolled
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector(".header");
+        header.classList.toggle("scrolled", window.scrollY > 20);
+      });
+    </script>
+  </body>
+</html>

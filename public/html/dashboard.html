@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NotCopy – Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- header -->
+    <header class="header" id="main-header">
+      <h1>NotCopy</h1>
+      <nav>
+        <a href="/perfil">Perfil</a>
+        <a href="#">Ajustes</a>
+        <a href="/">Cerrar sesión</a>
+      </nav>
+    </header>
+
+    <!-- fondo animado -->
+    <div class="animated-bg"></div>
+
+    <div class="layout">
+      <!-- sidebar -->
+      <aside class="sidebar">
+        <ul>
+          <li>
+            <a href="/recursos"><i class="fas fa-home"></i> Inicio</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-download"></i> Descargas</a>
+          </li>
+          <li>
+            <a href="/dashboard" class="active"
+              ><i class="fas fa-star"></i> Favoritos</a
+            >
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-headset"></i> Soporte</a>
+          </li>
+          <li>
+            <a href="/about"
+              ><i class="fas fa-info-circle"></i> Sobre NotCopy</a
+            >
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-folder"></i> Recursos</a>
+          </li>
+          <li>
+            <a href="/contacto"><i class="fas fa-envelope"></i> Contacto</a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- contenido principal -->
+      <main class="main">
+        <!-- buscador y filtro -->
+        <section class="controls">
+          <input
+            type="search"
+            class="search-input"
+            placeholder="Buscar videos, imágenes o audio…"
+          />
+          <select class="filter-select">
+            <option value="">Todos</option>
+            <option value="videos">Videos</option>
+            <option value="imagenes">Imágenes</option>
+            <option value="audio">Audio</option>
+            <option value="documentos">Documentos</option>
+          </select>
+        </section>
+
+        <!-- tarjetas -->
+        <section class="grid-cards">
+          <div class="card">
+            <i class="fas fa-video fa-3x"></i>
+            <h3>Videos</h3>
+            <p>Tus videos más recientes.</p>
+            <a href="#" class="btn-card">Ver más</a>
+          </div>
+
+          <div class="card">
+            <i class="fas fa-image fa-3x"></i>
+            <h3>Imágenes</h3>
+            <p>Explora tus galerías.</p>
+            <a href="#" class="btn-card">Ver más</a>
+          </div>
+
+          <div class="card">
+            <i class="fas fa-music fa-3x"></i>
+            <h3>Audio</h3>
+            <p>Reproduce tus pistas.</p>
+            <a href="#" class="btn-card">Ver más</a>
+          </div>
+
+          <div class="card">
+            <i class="fas fa-file-alt fa-3x"></i>
+            <h3>Documentos</h3>
+            <p>Accede a tus archivos.</p>
+            <a href="#" class="btn-card">Ver más</a>
+          </div>
+
+          <div class="card">
+            <i class="fas fa-laugh-beam"></i>
+            <h3>Gifs</h3>
+            <p>Reacciona a tus gifs.</p>
+            <a href="#" class="btn-card">Ver más</a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- footer -->
+    <footer class="footer">
+      <p>&copy; 2025 NotCopy. Todos los derechos reservados.</p>
+      <div class="socials">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
+    </footer>
+
+    <!-- header dinámico -->
+    <script>
+      window.addEventListener("scroll", () => {
+        const header = document.getElementById("main-header");
+        header.classList.toggle("scrolled", window.scrollY > 50);
+      });
+    </script>
+  </body>
+</html>
