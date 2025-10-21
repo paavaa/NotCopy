@@ -1,0 +1,255 @@
+:root {
+    --grad-start: #0f1c3f;
+    --grad-end: #000a12;
+    --accent: #6366f1;
+    --white: #ffffff;
+    --text-light: #f3f4f6;
+    --card-bg: rgba(255, 255, 255, 0.07);
+    --card-bg-hover: rgba(255, 255, 255, 0.12);
+    --radius: 1rem;
+    --transition: 0.4s ease;
+}
+
+/* Reset Global */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, var(--grad-start), var(--grad-end));
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: var(--accent);
+    transition: color var(--transition);
+}
+
+a:hover {
+    color: var(--white);
+}
+
+/* Header */
+.site-header {
+    background: linear-gradient(90deg, var(--grad-start), var(--accent));
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    animation: fadeInDown var(--transition);
+}
+
+.site-header h1 {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    color: var(--white);
+}
+
+.site-header nav a {
+    color: var(--white);
+    margin-left: 1.5rem;
+    font-weight: 500;
+    position: relative;
+    transition: color var(--transition);
+}
+
+.site-header nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: var(--white);
+    transition: width var(--transition);
+}
+
+.site-header nav a:hover {
+    color: var(--accent);
+}
+
+.site-header nav a:hover::after {
+    width: 100%;
+}
+
+/* Layout: Sidebar + Main */
+.layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 1rem;
+    padding: 2rem;
+    animation: fadeInContent var(--transition) 0.2s both;
+}
+
+@media (max-width: 768px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        display: none;
+    }
+}
+
+/* Sidebar */
+.sidebar {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    backdrop-filter: blur(6px);
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li+li {
+    margin-top: 1rem;
+}
+
+.sidebar a {
+    color: var(--text-light);
+    font-weight: 500;
+    transition: color var(--transition);
+}
+
+.sidebar a:hover {
+    color: var(--accent);
+}
+
+/* Main Content */
+
+
+/* Centrar el contenido principal */
+
+/* Centrar el contenido principal */
+content {
+    max-width: 600px;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+}
+
+content h1 {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+}
+
+content h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+content p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+}
+
+
+@media (max-width: 768px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .layout>.main-content>.hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem 0;
+    }
+
+    .layout>.main-content>.hero>.hero-content,
+    .layout>.main-content>.hero>.hero-image {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .layout>.main-content>.hero>.hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .layout>.main-content>.hero>.hero-content h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Footer */
+.site-footer {
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    animation: fadeInUp var(--transition);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInContent {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
