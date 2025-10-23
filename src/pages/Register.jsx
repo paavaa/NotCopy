@@ -9,40 +9,50 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
-  // función de registro
   const handleRegister = async (e) => {
     e.preventDefault();
+    setError("");
 
     if (password !== confirm) {
-      alert("Las contraseñas no coinciden");
+      setError("Las contraseñas no coinciden");
       return;
     }
 
     try {
       setLoading(true);
+
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
         password
       );
 
-      // agregar el "displayName" (username)
+      // añade el nombre de usuario al perfil
       await updateProfile(userCredential.user, {
         displayName: username,
       });
 
       alert("Cuenta creada exitosamente 🎉");
-      navigate("/dashboard");
+      navigate("/home");
     } catch (error) {
       console.error(error);
-      if (error.code === "auth/email-already-in-use") {
-        alert("El correo ya está registrado.");
-      } else {
-        alert("Error al crear la cuenta.");
+      switch (error.code) {
+        case "auth/email-already-in-use":
+          setError("El correo ya está registrado.");
+          break;
+        case "auth/invalid-email":
+          setError("El formato del correo no es válido.");
+          break;
+        case "auth/weak-password":
+          setError("La contraseña debe tener al menos 6 caracteres.");
+          break;
+        default:
+          setError("Error al crear la cuenta.");
       }
     } finally {
       setLoading(false);
@@ -95,11 +105,9 @@ export default function Register() {
         </button>
       </form>
 
-      <div className="footer">
-        <p>
-          Ya tienes una cuenta? <Link to="/">Entrar</Link>
-        </p>
-      </div>
+      <p>
+        ¿Ya tienes una cuenta? <Link to="/">Entrar</Link>
+      </p>
     </div>
   );
 }

@@ -1,9 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import "../styles/Home.css";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase/config";
 
-export default function Home() {
+export default function Recursos() {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
@@ -15,60 +16,122 @@ export default function Home() {
     }
   };
 
+  // efecto para el header dinamico
+  useEffect(() => {
+    const handleScroll = () => {
+      const header = document.getElementById("main-header");
+      if (header) header.classList.toggle("scrolled", window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
-      {/* Header */}
-      <header className="site-header">
+      {/* header */}
+      <header className="header" id="main-header">
         <h1>NotCopy</h1>
         <nav>
-          <Link to="/profile">Perfil</Link>
-          <Link to="/settings">Ajustes</Link>
+          <Link to="/home">Inicio</Link>
+          <Link to="/downloads">Descargas</Link>
+          <Link to="/dashboard">Favoritos</Link>
+          <Link to="/support">Soporte</Link>
+          <Link to="/about">Sobre NotCopy</Link>
+          <Link to="/resources" className="active">
+            Recursos
+          </Link>
+          <Link to="/contact">Contacto</Link>
           <button onClick={handleLogout} className="logout-btn">
             Cerrar sesión
           </button>
         </nav>
       </header>
 
-      <div className="layout">
-        {/* Sidebar */}
-        <aside className="sidebar">
-          <ul>
-            <li>
-              <Link to="/home">Inicio</Link>
-            </li>
-            <li>
-              <Link to="/downloads">Descargas</Link>
-            </li>
-            <li>
-              <Link to="/dashboard">Favoritos</Link>
-            </li>
-            <li>
-              <Link to="/support">Soporte</Link>
-            </li>
-            <li>
-              <Link to="/about">Sobre NotCopy</Link>
-            </li>
-            <li>
-              <Link to="/resources">Recursos</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contacto</Link>
-            </li>
-          </ul>
-        </aside>
+      <div className="animated-bg"></div>
 
-        {/* Main Content */}
-        <div className="content">
-          <h1>NotCopy</h1>
-          <br />
-          <h2>Empieza tu viaje creativo</h2>
-          <p>Todo lo que necesitas para crear, sin restricciones.</p>
-        </div>
-      </div>
+      <main className="main">
+        <section className="hero">
+          <div className="hero-content">
+            <h1>Bienvenido a NotCopy</h1>
+            <br />
+            <h2>Tu biblioteca multimedia</h2>
+            <p>
+              Explora videos, imágenes, audio, GIFs y documentos sin límites.
+            </p>
+          </div>
+        </section>
 
-      {/* Footer */}
-      <footer className="site-footer">
+        {/* buscador */}
+        <section className="search-bar">
+          <input type="text" placeholder="Buscar recursos..." />
+          <button>
+            <i className="fas fa-search"></i>
+          </button>
+        </section>
+
+        {/* grid de tarjetas */}
+        <section className="grid-cards">
+          <div className="card">
+            <i className="fas fa-video fa-3x"></i>
+            <h3>Videos</h3>
+            <p>Time-lapses, drones y motion graphics.</p>
+            <Link to="/resources/videos" className="btn-card">
+              Ver más
+            </Link>
+          </div>
+
+          <div className="card">
+            <i className="fas fa-file-alt fa-3x"></i>
+            <h3>Documentos</h3>
+            <p>Whitepapers, manuales y plantillas.</p>
+            <Link to="/resources/docs" className="btn-card">
+              Ver más
+            </Link>
+          </div>
+
+          <div className="card">
+            <i className="fas fa-image fa-3x"></i>
+            <h3>Imágenes</h3>
+            <p>Fotografía, ilustraciones y vectores.</p>
+            <Link to="/resources/images" className="btn-card">
+              Ver más
+            </Link>
+          </div>
+
+          <div className="card">
+            <i className="fas fa-music fa-3x"></i>
+            <h3>Audio</h3>
+            <p>Beats, loops y efectos de sonido.</p>
+            <Link to="/resources/audio" className="btn-card">
+              Ver más
+            </Link>
+          </div>
+
+          <div className="card">
+            <i className="fas fa-grin-squint fa-3x"></i>
+            <h3>GIFs</h3>
+            <p>Reacciones, loops y animaciones cortas.</p>
+            <Link to="/resources/gifs" className="btn-card">
+              Ver más
+            </Link>
+          </div>
+        </section>
+      </main>
+
+      {/* pie de pagina */}
+      <footer className="footer">
         <p>&copy; 2025 NotCopy. Todos los derechos reservados.</p>
+        <div className="socials">
+          <a href="#">
+            <i className="fab fa-twitter"></i>
+          </a>
+          <a href="#">
+            <i className="fab fa-instagram"></i>
+          </a>
+          <a href="#">
+            <i className="fab fa-github"></i>
+          </a>
+        </div>
       </footer>
     </>
   );

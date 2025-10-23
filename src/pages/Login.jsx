@@ -1,45 +1,56 @@
 import React, { useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase/config";
+import { useNavigate, Link } from "react-router-dom";
 import "../styles/login.css";
 
 export default function Login() {
-  const [form, setForm] = useState({ username: "", password: "" });
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const res = await fetch("http://localhost:3000/api/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+    setError("");
+    setLoading(true);
 
-      const data = await res.json();
-      if (data.success) {
-        window.location.href = "/dashboard"; //Router navigate
-      } else {
-        setError(data.message || "Error al iniciar sesión");
-      }
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate("/home");
     } catch (err) {
-      setError("Error de conexión con el servidor");
+      console.error(err);
+      switch (err.code) {
+        case "auth/invalid-email":
+          setError("El formato del correo no es válido");
+          break;
+        case "auth/user-not-found":
+          setError("No existe una cuenta con este correo");
+          break;
+        case "auth/wrong-password":
+          setError("Contraseña incorrecta");
+          break;
+        default:
+          setError("Error al iniciar sesión");
+      }
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="login-container">
-      <h1>Sign in to NotCopy</h1>
+      <h1>Iniciar sesión en NotCopy</h1>
+
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Usuario o Correo</label>
+        <label htmlFor="email">Correo electrónico</label>
         <input
-          type="text"
-          id="username"
-          name="username"
-          value={form.username}
-          onChange={handleChange}
+          type="email"
+          id="email"
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
 
@@ -48,21 +59,21 @@ export default function Login() {
           type="password"
           id="password"
           name="password"
-          value={form.password}
-          onChange={handleChange}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           required
         />
 
-        <input type="submit" value="Sign in" />
+        <button type="submit" disabled={loading}>
+          {loading ? "Ingresando..." : "Entrar"}
+        </button>
       </form>
 
       {error && <p className="error">{error}</p>}
 
-      <div className="footer">
-        <p>
-          Nuevo en NotCopy? <a href="/register">Crea una cuenta</a>
-        </p>
-      </div>
+      <p className="register-link">
+        ¿Nuevo en NotCopy? <Link to="/register">Crea una cuenta</Link>
+      </p>
     </div>
   );
 }
