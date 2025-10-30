@@ -3,18 +3,27 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import ImagesPage from "./pages/ImagesPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* publico */}
+        {/* Rutas públicas */}
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/home" element={<Home />} />
 
-        {/* protegido */}
+        {/* Rutas protegidas */}
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+
         <Route
           path="/dashboard"
           element={
@@ -23,6 +32,54 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/resources/images"
+          element={
+            <ProtectedRoute>
+              <ImagesPage />
+            </ProtectedRoute>
+          }
+        />
+
+        {/*mas rutas cuando esten las otras paginas:
+        
+        <Route
+          path="/resources/videos"
+          element={
+            <ProtectedRoute>
+              <VideosPage />
+            </ProtectedRoute>
+          }
+        />
+        
+        <Route
+          path="/resources/audio"
+          element={
+            <ProtectedRoute>
+              <AudioPage />
+            </ProtectedRoute>
+          }
+        />
+        
+        <Route
+          path="/resources/docs"
+          element={
+            <ProtectedRoute>
+              <DocsPage />
+            </ProtectedRoute>
+          }
+        />
+        
+        <Route
+          path="/resources/gifs"
+          element={
+            <ProtectedRoute>
+              <GifsPage />
+            </ProtectedRoute>
+          }
+        />
+        
+        */}
       </Routes>
     </BrowserRouter>
   );
