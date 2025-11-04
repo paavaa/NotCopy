@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import "../styles/Home.css";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase/config";
+import Footer from "../components/Footer.jsx";
 
 export default function Recursos() {
   const navigate = useNavigate();
@@ -37,9 +38,6 @@ export default function Recursos() {
           <Link to="/dashboard">Favoritos</Link>
           <Link to="/support">Soporte</Link>
           <Link to="/about">Sobre NotCopy</Link>
-          <Link to="/resources" className="active">
-            Recursos
-          </Link>
           <Link to="/contact">Contacto</Link>
           <button onClick={handleLogout} className="logout-btn">
             Cerrar sesión
@@ -119,20 +117,7 @@ export default function Recursos() {
       </main>
 
       {/* pie de pagina */}
-      <footer className="footer">
-        <p>&copy; 2025 NotCopy. Todos los derechos reservados.</p>
-        <div className="socials">
-          <a href="#">
-            <i className="fab fa-twitter"></i>
-          </a>
-          <a href="#">
-            <i className="fab fa-instagram"></i>
-          </a>
-          <a href="#">
-            <i className="fab fa-github"></i>
-          </a>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }

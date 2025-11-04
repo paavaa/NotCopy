@@ -1,0 +1,40 @@
+.sidebar {
+    position: fixed;
+    top: 80px;
+    /* debajo del header */
+    left: 0;
+    width: 250px;
+    height: calc(100vh - 80px);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    padding: 2rem 1rem;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin: 0.8rem 0;
+}
+
+.sidebar a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.6rem 1rem;
+    display: block;
+    border-radius: var(--radius);
+    transition: 0.3s;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background: var(--card-bg-hover);
+    color: var(--accent-light);
+}

@@ -66,8 +66,7 @@ body {
     transition: color var(--transition);
 }
 
-.header nav a:hover,
-.header nav a.active {
+.header nav a:hover {
     color: var(--accent);
 }
 
