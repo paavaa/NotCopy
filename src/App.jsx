@@ -4,6 +4,9 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import ImagesPage from "./pages/ImagesPage";
+import About from "./pages/About";
+import Support from "./pages/Support";
+import Contact from "./pages/Contact";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
@@ -37,6 +40,33 @@ function App() {
           element={
             <ProtectedRoute>
               <ImagesPage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/about"
+          element={
+            <ProtectedRoute>
+              <About />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/support"
+          element={
+            <ProtectedRoute>
+              <Support />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/contact"
+          element={
+            <ProtectedRoute>
+              <Contact />
             </ProtectedRoute>
           }
         />

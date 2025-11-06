@@ -13,6 +13,7 @@ import {
   query,
   where,
 } from "firebase/firestore";
+import Footer from "../components/Footer";
 
 export default function ImagesPage() {
   const navigate = useNavigate();
@@ -126,6 +127,7 @@ export default function ImagesPage() {
         downloadUrl: image.src.original,
         savedAt: new Date(),
       });
+      1;
 
       alert("✅ Imagen agregada a favoritos");
       fetchUserFavorites();
@@ -158,7 +160,7 @@ export default function ImagesPage() {
   };
 
   return (
-    <>
+    <div className="imagepage-container">
       {/* header */}
       <header className="header" id="main-header">
         <h1>NotCopy</h1>
@@ -178,17 +180,14 @@ export default function ImagesPage() {
 
       <div className="animated-bg"></div>
 
-      <main className="main">
+      <main className="main-content">
         {/*hero*/}
         <section className="hero">
           <div className="hero-content">
             <h1>Galería de Imágenes</h1>
             <br />
             <h2>Miles de fotos de alta calidad</h2>
-            <p>
-              Explora, descarga y guarda tus imágenes favoritas libres de
-              derechos.
-            </p>
+            <p>Explora, descarga y guarda tus imágenes favoritas.</p>
           </div>
         </section>
 
@@ -214,7 +213,7 @@ export default function ImagesPage() {
           </div>
         )}
 
-        {/* gid de imagenes */}
+        {/* grid de imagenes */}
         {!loading && (
           <section className="grid-cards">
             {images.map((image) => (
@@ -234,7 +233,7 @@ export default function ImagesPage() {
                     download
                     className="btn-card btn-download"
                   >
-                    <i className="fas fa-download"></i> Descargar
+                    <i className="fas fa-download"></i>
                   </a>
 
                   {isFavorite(image.id) ? (
@@ -262,20 +261,7 @@ export default function ImagesPage() {
       </main>
 
       {/* pie de pagina*/}
-      <footer className="footer">
-        <p>&copy; 2025 NotCopy. Todos los derechos reservados.</p>
-        <div className="socials">
-          <a href="#">
-            <i className="fab fa-twitter"></i>
-          </a>
-          <a href="#">
-            <i className="fab fa-instagram"></i>
-          </a>
-          <a href="#">
-            <i className="fab fa-github"></i>
-          </a>
-        </div>
-      </footer>
-    </>
+      <Footer />
+    </div>
   );
 }

@@ -1,6 +1,100 @@
-/* Estilos específicos para ImagesPage */
+.imagepage-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
 
-/* Contenedor de carga */
+
+.header {
+    position: relative;
+    z-index: 10;
+    flex-shrink: 0;
+    padding: 0.7rem 1.5rem;
+}
+
+
+.main-content {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 1rem;
+}
+
+
+.main-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.main-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.main-content::-webkit-scrollbar-thumb {
+    background: var(--accent, #667eea);
+    border-radius: 10px;
+}
+
+.main-content::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-hover, #764ba2);
+}
+
+
+.footer {
+    position: relative;
+    z-index: 10;
+    flex-shrink: 0;
+    padding: 0.8rem 1.5rem;
+}
+
+
+.hero {
+    padding: 1.5rem 2rem 1rem 2rem;
+    min-height: auto;
+}
+
+.hero-content {
+    max-width: 100%;
+}
+
+.hero h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.hero h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+}
+
+.hero p {
+    font-size: 0.85rem;
+    margin-bottom: 0;
+}
+
+
+.search-bar {
+    padding: 0 2rem 1rem 2rem;
+    display: flex;
+    gap: 0.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.search-bar input {
+    padding: 0.65rem 1rem;
+    font-size: 0.9rem;
+}
+
+.search-bar button {
+    padding: 0.65rem 1.2rem;
+}
+
+
 .loading-container {
     text-align: center;
     padding: 2rem;
@@ -12,15 +106,17 @@
     color: var(--text-light);
 }
 
-/* Grid MÁS COMPACTO - Más columnas */
+
 .grid-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
     gap: 0.8rem;
-    padding: 1rem 1.5rem 2rem 1.5rem;
+    padding: 0 2rem 1.5rem 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
 }
 
-/* Tarjeta de imagen - SUPER COMPACTA */
+
 .image-card {
     position: relative;
     padding: 0.5rem;
@@ -29,8 +125,8 @@
 }
 
 .image-card h3 {
+    margin-top: 50px;
     font-size: 0.8rem;
-    margin: 0.4rem 0 0.2rem 0;
     line-height: 1.2;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -44,7 +140,7 @@
 
 .image-thumbnail {
     width: 100%;
-    height: 140px;
+    height: 130px;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 0;
@@ -60,96 +156,14 @@
     text-overflow: ellipsis;
 }
 
-/* Acciones de la tarjeta - ULTRA COMPACTAS */
-.card-actions {
-    display: flex;
-    gap: 0.4rem;
-    margin-top: 0.4rem;
+
+
+@media (max-width: 1400px) {
+    .grid-cards {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
 }
 
-.btn-card {
-    padding: 0.4rem 0.6rem;
-    font-size: 0.75rem;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-}
-
-.btn-download {
-    flex: 1;
-    text-align: center;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.3rem;
-}
-
-.btn-download i {
-    font-size: 0.75rem;
-}
-
-.btn-favorite {
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
-    cursor: pointer;
-    padding: 0.4rem 0.7rem;
-    font-size: 0.9rem;
-}
-
-.btn-favorite:hover {
-    transform: scale(1.05);
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.btn-favorite.active:hover {
-    background: linear-gradient(135deg, #ffed4e, #ffd700);
-}
-
-/* Hero MUY COMPACTO */
-.hero {
-    padding: 2.5rem 2rem 1.5rem 2rem;
-    min-height: auto;
-}
-
-.hero-content {
-    max-width: 100%;
-}
-
-.hero h1 {
-    font-size: 2rem;
-    margin-bottom: 0.3rem;
-}
-
-.hero h2 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-}
-
-.hero p {
-    font-size: 0.9rem;
-    margin-bottom: 0;
-}
-
-/* Barra de búsqueda más compacta */
-.search-bar {
-    padding: 1rem 1.5rem;
-    display: flex;
-    gap: 0.5rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.search-bar input {
-    padding: 0.7rem 1rem;
-    font-size: 0.9rem;
-}
-
-.search-bar button {
-    padding: 0.7rem 1.2rem;
-}
-
-/* Responsive */
 @media (max-width: 1200px) {
     .grid-cards {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -160,7 +174,7 @@
     .grid-cards {
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
         gap: 0.6rem;
-        padding: 0.8rem;
+        padding: 0 1rem 1rem 1rem;
     }
 
     .image-thumbnail {
@@ -168,11 +182,11 @@
     }
 
     .hero {
-        padding: 2rem 1rem 1rem 1rem;
+        padding: 1.2rem 1rem 0.8rem 1rem;
     }
 
     .hero h1 {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
 
     .hero h2 {
@@ -180,17 +194,26 @@
     }
 
     .hero p {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
 
     .search-bar {
-        padding: 0.8rem;
+        padding: 0 1rem 0.8rem 1rem;
+    }
+
+    .header {
+        padding: 0.6rem 1rem;
+    }
+
+    .footer {
+        padding: 0.7rem 1rem;
     }
 }
 
 @media (max-width: 480px) {
     .grid-cards {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 0.5rem;
     }
 
     .image-thumbnail {
@@ -199,5 +222,15 @@
 
     .image-card h3 {
         font-size: 0.75rem;
+    }
+
+    .photographer-name {
+        font-size: 0.65rem;
+    }
+}
+
+@media (min-width: 1600px) {
+    .grid-cards {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     }
 }

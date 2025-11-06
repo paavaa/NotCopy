@@ -33,7 +33,7 @@ body {
 
 
 
-/* contenedor principal */
+
 .login-container {
     background: rgba(255, 255, 255, 0.04);
     backdrop-filter: blur(6px);
@@ -88,7 +88,7 @@ body {
     outline: none;
 }
 
-/* boton */
+
 .login-container input[type="submit"] {
     width: 100%;
     padding: 0.75rem;
@@ -139,7 +139,7 @@ body {
 
 
 
-/* animaciones */
+
 @keyframes fadeInDown {
     from {
         opacity: 0;
@@ -164,7 +164,7 @@ body {
     }
 }
 
-/* responsive */
+
 @media (max-width: 420px) {
     .login-container {
         padding: 1.25rem;

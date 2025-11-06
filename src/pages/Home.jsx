@@ -29,25 +29,25 @@ export default function Recursos() {
 
   return (
     <>
-      {/* header */}
-      <header className="header" id="main-header">
-        <h1>NotCopy</h1>
-        <nav>
-          <Link to="/home">Inicio</Link>
-          <Link to="/downloads">Descargas</Link>
-          <Link to="/dashboard">Favoritos</Link>
-          <Link to="/support">Soporte</Link>
-          <Link to="/about">Sobre NotCopy</Link>
-          <Link to="/contact">Contacto</Link>
-          <button onClick={handleLogout} className="logout-btn">
-            Cerrar sesión
-          </button>
-        </nav>
-      </header>
+      <div className="home-container">
+        {/* header */}
+        <header className="header" id="main-header">
+          <h1>NotCopy</h1>
+          <nav>
+            <Link to="/home">Inicio</Link>
+            <Link to="/downloads">Descargas</Link>
+            <Link to="/dashboard">Favoritos</Link>
+            <Link to="/support">Soporte</Link>
+            <Link to="/about">Sobre NotCopy</Link>
+            <Link to="/contact">Contacto</Link>
+            <button onClick={handleLogout} className="logout-btn">
+              Cerrar sesión
+            </button>
+          </nav>
+        </header>
 
-      <div className="animated-bg"></div>
+        <div className="animated-bg"></div>
 
-      <main className="main">
         <section className="hero">
           <div className="hero-content">
             <h1>Bienvenido a NotCopy</h1>
@@ -68,7 +68,7 @@ export default function Recursos() {
         </section>
 
         {/* grid de tarjetas */}
-        <section className="grid-cards">
+        <div className="grid-cards">
           <div className="card">
             <i className="fas fa-video fa-3x"></i>
             <h3>Videos</h3>
@@ -113,11 +113,9 @@ export default function Recursos() {
               Ver más
             </Link>
           </div>
-        </section>
-      </main>
-
-      {/* pie de pagina */}
-      <Footer />
+        </div>
+        <Footer />
+      </div>
     </>
   );
 }
